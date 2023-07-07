@@ -9,17 +9,17 @@
 		
 		<form method="post" action="#" th:action="@{/survey/confirm}" th:object="${surveyForm}">
 			<label for="age">年齢</label>
-			<input id="age" name="age" type="number"><br>
+			<input id="age" name="age" type="number" th:field="*{age}"><br>
 			
 			<label for="satisfaction">満足度：</label>
-			<input id="satisfaction" name="satisfaction" type="radio" value="1">1
-			<input id="satisfaction" name="satisfaction" type="radio" value="2">2
-			<input id="satisfaction" name="satisfaction" type="radio" value="3">3
-			<input id="satisfaction" name="satisfaction" type="radio" value="4">4
-			<input id="satisfaction" name="satisfaction" type="radio" value="5">5<br>
+			<input id="satisfaction" name="satisfaction" type="radio" value="1" th:checked="*{satisfaction == 1}">1
+			<input id="satisfaction" name="satisfaction" type="radio" value="2" th:checked="*{satisfaction == 2}">2
+			<input id="satisfaction" name="satisfaction" type="radio" value="3" th:checked="*{satisfaction == 3}">3
+			<input id="satisfaction" name="satisfaction" type="radio" value="4" th:checked="*{satisfaction == 4}">4
+			<input id="satisfaction" name="satisfaction" type="radio" value="5" th:checked="*{satisfaction == 5}">5<br>
 			
 			<label for="comment">コメント：</label>
-			<textarea id="comment" name="comment" rows="3" cols="40"></textarea><br>
+			<textarea id="comment" name="comment" rows="3" cols="40" th:field="*{comment}"></textarea><br>
 			
 			<input type="submit" value="詳細ページへ">
 		</form>
