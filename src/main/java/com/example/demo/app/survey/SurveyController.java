@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SurveyController {
 	
 	@GetMapping("/form")
-	public String form(Model model) {
+	public String form(SurveyForm surveyForm, Model model) {
 		model.addAttribute("title", "Survey Form");
 		return "survey/form";
 	}
+	
+	
 }
