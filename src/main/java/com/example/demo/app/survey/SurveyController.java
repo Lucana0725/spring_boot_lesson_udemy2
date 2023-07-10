@@ -7,6 +7,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/survey")
@@ -27,7 +28,7 @@ public class SurveyController {
 	}
 	
 	
-	
+	// /survey/confirmページへ遷移する処理
 	@PostMapping("/confirm")
 	public String confirm(@Validated SurveyForm surveyForm, 
 			BindingResult result, 
@@ -38,5 +39,22 @@ public class SurveyController {
 		}
 		model.addAttribute("title", "Confirm Page");
 		return "survey/confirm";
+	}
+	
+	
+	// /survey/confirmから本送信した際の遷移処理
+	@PostMapping("/complete")
+	public String complete(@Validated SurveyForm surveyForm,
+			BindingResult result,
+			Model model,
+			RedirectAttributes redirectAttributes) {
+		// 入力値にエラー(バリデーションが働いたら)があれば
+		if(result.hasErrors()) {
+			model.addAttribute("title", "SurveyForm");
+			return "survey/form";  // survey/formへ戻してやる
+		}
+		// 特にエラーがなければ、completeというキーが渡ってきたら"登録完了！"の文字を渡して、/survey/formへリダイレクトさせる
+		redirectAttributes.addFlashAttribute("complete", "登録完了！");
+		return "redirect:/survey/form";
 	}
 }
