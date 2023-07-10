@@ -7,8 +7,11 @@
 	<body>
 		<p>Please check your form</p>
 		<div th:object="${surveyForm}">
+			<p>年齢：</p>
 			<p th:text="*{age}"></p>
+			<p>満足度：</p>
 			<p th:text="*{satisfaction}"></p>
+			<p>コメント：</p>
 			<p th:text="*{comment}"></p>
 			
 			<!-- confirmページからformページへ戻るフォーム -->
