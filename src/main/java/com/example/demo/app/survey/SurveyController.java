@@ -12,11 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/survey")
 public class SurveyController {
 	
+	// /survey/formへの遷移処理
 	@GetMapping("/form")
 	public String form(SurveyForm surveyForm, Model model) {
 		model.addAttribute("title", "Survey Form");
 		return "survey/form";
 	}
+
+	// /survey/confirmから/survey/formへのバック処理
+	@PostMapping("/form")
+	public String backToForm(SurveyForm surveyForm, Model model) {
+		model.addAttribute("title", "Survey Form");
+		return "survey/form";
+	}
+	
+	
 	
 	@PostMapping("/confirm")
 	public String confirm(@Validated SurveyForm surveyForm, 
