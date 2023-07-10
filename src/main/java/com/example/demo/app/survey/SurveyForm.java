@@ -3,6 +3,7 @@ package com.example.demo.app.survey;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class SurveyForm {
 
@@ -13,10 +14,13 @@ public class SurveyForm {
 	@NotNull
 	private int age;
 	
+	@Min(1)
+	@Max(5)
 	@NotNull
 	private int satisfaction;
 	
 	@NotNull
+	@Size(min = 1, max = 200, message="Please input 200 characters or less")
 	private String comment;
 	
 	// コンストラクタ
