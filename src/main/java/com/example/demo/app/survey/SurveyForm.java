@@ -16,7 +16,6 @@ public class SurveyForm {
 	
 	@Min(1)
 	@Max(5)
-	@NotNull
 	private int satisfaction;
 	
 	@NotNull
@@ -41,7 +40,7 @@ public class SurveyForm {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public void setSatisfactino(int satisfaction) {
+	public void setSatisfaction(int satisfaction) {
 		this.satisfaction = satisfaction;
 	}
 	public void setComment(String comment) {

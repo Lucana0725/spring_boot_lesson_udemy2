@@ -18,11 +18,7 @@
 			<form method="post" action="#" th:action="@{/survey/form}">
 				<input type="hidden" name="age" th:value="*{age}">
 				
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 1}">
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 2}">
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 3}">
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 4}">
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 5}">
+				<input type="hidden" name="satisfaction" th:value="*{satisfaction}">
 				
 				<input type="hidden" name="comment" th:value="*{comment}">
 				
@@ -33,11 +29,7 @@
 			<form method="post" action="#" th:action="@{/survey/complete}">
 				<input type="hidden" name="age" th:value="*{age}">
 				
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 1}">
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 2}">
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 3}">
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 4}">
-				<input type="hidden" name="satisfaction" th:value="*{satisfaction == 5}">
+				<input type="hidden" name="satisfaction" th:value="*{satisfaction}">
 				
 				<input type="hidden" name="comment" th:value="*{comment}">
 				
